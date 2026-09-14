@@ -12,7 +12,7 @@ cask "loki" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "loki.app"
 
@@ -23,8 +23,9 @@ cask "loki" do
   ]
 
   caveats <<~EOS
-    loki is not signed with an Apple Developer ID. If macOS says it is damaged, the download was
-    quarantined: run `xattr -dr com.apple.quarantine /Applications/loki.app` once, or reinstall with
-      brew reinstall --cask --no-quarantine loki
+    loki is not signed with an Apple Developer ID, so macOS will call the download "damaged" the
+    first time. Clear the quarantine flag once and it opens:
+      xattr -dr com.apple.quarantine /Applications/loki.app
+    (or open it, dismiss the dialog, and allow it under System Settings › Privacy & Security).
   EOS
 end
