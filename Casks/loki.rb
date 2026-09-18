@@ -1,6 +1,6 @@
 cask "loki" do
-  version "0.1.0"
-  sha256 "990fbb71a4ef25d932bb8603e2fedd9ec6615712bb0d4784a8da1b1c31f18da6"
+  version "2026.9.18"
+  sha256 "58dec33d6325a1c3343cee3202f3244788c05698d1e18c014cdbd53fb35fa4e8"
 
   url "https://github.com/AlmondLabs/loki/releases/download/v#{version}/loki_#{version}_universal.dmg"
   name "loki"
@@ -12,7 +12,12 @@ cask "loki" do
     strategy :github_latest
   end
 
+  # One loki at a time: both builds share ~/.letta/loki, the mod shim and the harness port.
+  conflicts_with cask: "AlmondLabs/loki/loki-nightly"
+
   depends_on macos: :ventura
+  # Letta Code is installed with npm on first launch (docs/manual.md › Requirements); Node brings npm.
+  depends_on formula: "node"
 
   app "loki.app"
 
