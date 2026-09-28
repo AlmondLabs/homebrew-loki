@@ -1,6 +1,6 @@
 cask "loki" do
-  version "2026.9.25"
-  sha256 "6160b23af648f03ec23b73cc0ac58007385852a81d15d925933f30369babd72b"
+  version "2026.9.28"
+  sha256 "4140341f0fced7cb507c7e36e4ecd5a7ce9aa60b5142b69e3f7d63e7f434d0f5"
 
   url "https://github.com/AlmondLabs/loki/releases/download/v#{version}/loki_#{version}_universal.dmg"
   name "loki"
