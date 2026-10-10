@@ -1,29 +1,29 @@
 cask "loki-nightly" do
-  version "2026.10.9-nightly.ab5231b"
-  sha256 "7e3ce2012324cc148c510e487f354d0f07670de920f716f6b0614c3bff98fbf0"
+  version "2026.10.10-nightly.77d137f"
+  sha256 "dbb550fe96df3c3e06111da4ebf6be1104814359e907a8b0b88755f0c15244ef"
 
   url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
   name "loki nightly"
-  desc "Desk, inbox, board and recall cards around Letta Code — built from every merge"
+  desc "Agents with a canvas, an inbox, a board and recall cards — built from every merge"
   homepage "https://github.com/AlmondLabs/loki"
 
   livecheck do
     skip "a rolling prerelease; the cask is rewritten on every merge"
   end
 
-  # One loki at a time: both builds share ~/.letta/loki, the mod shim and the harness port.
+  # One loki at a time: both builds share ~/.loki and the mod's port.
   conflicts_with cask: "AlmondLabs/loki/loki"
 
   depends_on macos: :ventura
-  # Letta Code is installed with npm on first launch (docs/manual.md › Requirements); Node brings npm.
+  # loki's daemon runs on Node 22.19 or newer (docs/manual.md › Requirements).
   depends_on formula: "node"
 
   app "loki.app"
 
   zap trash: [
     "~/.agents/skills/loki",
+    "~/.loki",
     "~/.letta/loki",
-    "~/.letta/mods/loki.ts",
   ]
 
   caveats <<~EOS
