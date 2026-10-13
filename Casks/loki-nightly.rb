@@ -1,10 +1,10 @@
 cask "loki-nightly" do
-  version "2026.1013.0-nightly.dca454a"
-  sha256 "7bf681d25c89ba341f501acb81656d61a62056fb035e13eea8bd7944cf66f5e8"
+  version "2026.1013.0-nightly.f8d2ec9"
+  sha256 "923c2c17bf2748dbdd7a69cc5fe9d968a7e3fda6f8b4494b88b6600f793767a9"
 
   url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
   name "loki nightly"
-  desc "Agents with a canvas, an inbox, a board and recall cards — built from every merge"
+  desc "Agents with a canvas, an inbox, a task list and recall cards — built from every merge"
   homepage "https://github.com/AlmondLabs/loki"
 
   livecheck do
