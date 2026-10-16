@@ -1,10 +1,10 @@
 cask "loki" do
-  version "2026.1011.5"
-  sha256 "6ac7e7eece47dd746f32d750c52e74b4e61a7c499bdb5d67d02b2e27524382a1"
+  version "2026.1016.0"
+  sha256 "a8bc168f3453bbea5cde32f94420742ac59668f000d4f0da637f42b79cbd73f7"
 
   url "https://github.com/AlmondLabs/loki/releases/download/v#{version}/loki_#{version}_universal.dmg"
   name "loki"
-  desc "Agents with a canvas, an inbox, a board and recall cards"
+  desc "Agents with a canvas, an inbox, a task list and recall cards"
   homepage "https://github.com/AlmondLabs/loki"
 
   livecheck do
