@@ -1,6 +1,6 @@
 cask "loki-nightly" do
-  version "2026.1019.0-nightly.fc19a4f"
-  sha256 "ce3f0161572aec3553ff3dd88b3eadd1d991517de81bb44750b5c7779261492f"
+  version "2026.1019.0-nightly.1ae3f27"
+  sha256 "56c9bbcad04fc5e3e962fa0d3a780c5b7e92752fd738a561a4b397cc5fdc5a94"
 
   url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
   name "loki nightly"
