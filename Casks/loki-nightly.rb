@@ -1,6 +1,6 @@
 cask "loki-nightly" do
-  version "2026.1027.0-nightly.6920228"
-  sha256 "71d39f5ac1fe9dc2b20dd42acfe2f87a660bccb25c485ecca2af9280a13fb9f0"
+  version "2026.1028.0-nightly.e0f5b77"
+  sha256 "082efddb43a4dd9042e6339d8d7eecafb7efa83a1d356e314056a06c31c870d7"
 
   url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
   name "loki nightly"
@@ -23,7 +23,6 @@ cask "loki-nightly" do
   zap trash: [
     "~/.agents/skills/loki",
     "~/.loki",
-    "~/.letta/loki",
   ]
 
   caveats <<~EOS
