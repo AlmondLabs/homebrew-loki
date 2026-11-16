@@ -1,6 +1,6 @@
 cask "loki-nightly" do
-  version "2026.1113.0-nightly.a39ab0d"
-  sha256 "4ad83d8aa66f5c49a682dc2deb45aeefc05d0f96e1ffae3ac3f3b316bf4bc54e"
+  version "2026.1116.0-nightly.297"
+  sha256 "be2badc348784dd950228b44e5357d524595b62310155319a6b14690357359f3"
 
   url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
   name "loki nightly"
@@ -15,7 +15,7 @@ cask "loki-nightly" do
   conflicts_with cask: "AlmondLabs/loki/loki"
 
   depends_on macos: :ventura
-  # loki's daemon runs on Node 22.19 or newer (docs/manual.md › Requirements).
+  # Builds from before loki fetched its own Node run their daemon on Homebrew's.
   depends_on formula: "node"
 
   app "loki.app"
