@@ -1,8 +1,8 @@
 cask "loki" do
-  version "2026.1022.0"
-  sha256 "651bbec47ab8223ff6791f8b6b36d727f165524b008097c2defe90008a568a32"
+  version "2026.1116.0"
+  sha256 "fdbbc1cf9d5041ffc5c38bc2fffcb387b74c6f09757a35cdb94ea725c6299192"
 
-  url "https://github.com/AlmondLabs/loki/releases/download/v#{version}/loki_#{version}_universal.dmg"
+  url "https://github.com/AlmondLabs/loki/releases/download/v#{version}/loki_#{version}_aarch64.dmg"
   name "loki"
   desc "Agents with a canvas, an inbox, a task list and recall cards"
   homepage "https://github.com/AlmondLabs/loki"
@@ -12,19 +12,21 @@ cask "loki" do
     strategy :github_latest
   end
 
+  # loki replaces itself through its signed updater; brew upgrade leaves it to that.
+  auto_updates true
+
   # One loki at a time: both builds share ~/.loki and the mod's port.
   conflicts_with cask: "AlmondLabs/loki/loki-nightly"
 
+  # Apple silicon only: Homebrew refuses an Intel Mac with its own message.
+  depends_on arch: :arm64
   depends_on macos: :ventura
-  # loki's daemon runs on Node 22.19 or newer (docs/manual.md › Requirements).
-  depends_on formula: "node"
 
   app "loki.app"
 
   zap trash: [
     "~/.agents/skills/loki",
     "~/.loki",
-    "~/.letta/loki",
   ]
 
   caveats <<~EOS
