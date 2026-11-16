@@ -1,8 +1,8 @@
 cask "loki-nightly" do
-  version "2026.1116.0-nightly.304"
-  sha256 "ac488ec261dadf1eb6f13a621775ad1b6b16e428ea9d4ec7f175a9825c228e5a"
+  version "2026.1116.0-nightly.305"
+  sha256 "1db102de0d0cf40f35de68cf1c5acfb5ef71b3d75c95fd37ee43d02aeb38ae2b"
 
-  url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
+  url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_aarch64.dmg"
   name "loki nightly"
   desc "Agents with a canvas, an inbox, a task list and recall cards — built from every merge"
   homepage "https://github.com/AlmondLabs/loki"
@@ -20,6 +20,8 @@ cask "loki-nightly" do
   # One loki at a time: both builds share ~/.loki and the mod's port.
   conflicts_with cask: "AlmondLabs/loki/loki"
 
+  # Apple silicon only: Homebrew refuses an Intel Mac with its own message.
+  depends_on arch: :arm64
   depends_on macos: :ventura
 
   app "loki.app"
