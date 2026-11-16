@@ -1,6 +1,6 @@
 cask "loki-nightly" do
-  version "2026.1116.0-nightly.298"
-  sha256 "af59c39ac650b9789a84e7072bbeda6aab83e7c110065620fa3d5b00c0ab619f"
+  version "2026.1116.0-nightly.302"
+  sha256 "163b2c511de406b843477aeb0e6e50f5af184a6625f959f6d903d356675a5783"
 
   url "https://github.com/AlmondLabs/loki/releases/download/nightly/loki_#{version}_universal.dmg"
   name "loki nightly"
@@ -11,12 +11,16 @@ cask "loki-nightly" do
     skip "a rolling prerelease; the cask is rewritten on every merge"
   end
 
+  # Homebrew finishes the sentence: "has been deprecated because it …".
+  deprecate! date: "2026-11-16", because: "is replaced by the loki cask and the Nightly channel in loki's About"
+
+  # loki replaces itself through its signed updater; brew upgrade leaves it to that.
+  auto_updates true
+
   # One loki at a time: both builds share ~/.loki and the mod's port.
   conflicts_with cask: "AlmondLabs/loki/loki"
 
   depends_on macos: :ventura
-  # Builds from before loki fetched its own Node run their daemon on Homebrew's.
-  depends_on formula: "node"
 
   app "loki.app"
 
